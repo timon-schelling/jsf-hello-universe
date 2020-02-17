@@ -10,5 +10,7 @@ fun Project.configureRepositories() {
         maven("https://dl.bintray.com/soywiz/soywiz")
         maven("https://mvnrepository.com/")
         maven("https://jitpack.io")
+        maven("http://download.java.net/maven/2/")
+        maven("http://repository.primefaces.org/")
     }
 }
