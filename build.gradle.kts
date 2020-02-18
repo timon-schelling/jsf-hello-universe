@@ -10,6 +10,7 @@ plugins {
     idea
     kotlin("jvm") version Versions.kotlinStdlib
     id("kotlinx-serialization") version Versions.kotlinStdlib
+    war
 }
 
 allprojects {
@@ -28,7 +29,7 @@ allprojects {
     sourceSets.forEach {
         when(it.name) {
             "main" -> {
-                it.resources.srcDirs("resources", "webapp")
+                it.resources.srcDirs("resources")
             }
             "test" -> {
                 it.resources.srcDirs("testResources")
@@ -82,14 +83,20 @@ allprojects {
 
     }
 
+
     val jar: Jar by tasks
     jar.apply {
-        val jarName = "${rootProject.name}${project.path.replace(":", "-")}-${project.version}.war"
+        val jarName = "${rootProject.name}${project.path.replace(":", "-")}-${project.version}.jar"
         archiveFileName.set(jarName)
     }
 }
 
 val jar: Jar by tasks
 jar.apply {
-    archiveFileName.set("${rootProject.name}-${rootProject.version}.war")
+    archiveFileName.set("${rootProject.name}-${rootProject.version}.jar")
+}
+
+val war: War by tasks
+war.apply {
+    from("webapp")
 }
