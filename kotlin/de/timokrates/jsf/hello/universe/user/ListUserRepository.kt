@@ -12,7 +12,6 @@ class ListUserRepository(private val users: MutableList<User> = mutableListOf())
     }
 
     override fun remove(userId: UserId): User {
-
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
