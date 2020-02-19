@@ -1,6 +1,4 @@
-import org.gradle.kotlin.dsl.sourceSets
-import org.jetbrains.kotlin.gradle.tasks.*
-import util.*
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 version = "0.0.1"
 
@@ -27,7 +25,7 @@ allprojects {
     configureRepositories()
 
     sourceSets.forEach {
-        when(it.name) {
+        when (it.name) {
             "main" -> {
                 it.resources.srcDirs("resources")
             }
@@ -43,7 +41,7 @@ allprojects {
 
     kotlin {
         sourceSets.forEach {
-            when(it.name) {
+            when (it.name) {
                 "main" -> {
                     it.kotlin.srcDirs("kotlin")
                 }

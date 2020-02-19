@@ -20,8 +20,7 @@ object Deps {
     val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinStdlib}"
     val kotlinCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}"
     val klock = "com.soywiz:klock-jvm:${Versions.klock}"
-    val kotlinSerializationRuntime =
-            "org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerializationRuntime}"
+    val kotlinSerializationRuntime = "org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerializationRuntime}"
     val kotlinSerializationYamlSupport = "com.charleskorn.kaml:kaml:${Versions.kotlinSerializationYamlSupport}"
     val regexDsl = "com.github.h0tk3y:regex-dsl:${Versions.regexDsl}"
     val kotlinStdlibJdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlinStdlib}"

@@ -1,7 +1,6 @@
 package de.timokrates.accessgranted.user
 
 import de.timokrates.accessgranted.group.GroupId
-import de.timokrates.accessgranted.token.TokenRepository
 
 class ListUserRepository(private val users: MutableList<User> = mutableListOf()) : UserRepository {
 

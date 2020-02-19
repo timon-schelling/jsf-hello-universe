@@ -3,12 +3,7 @@ package util
 import com.soywiz.klock.DateFormat
 import com.soywiz.klock.DateTime
 import org.gradle.api.Project
-import org.gradle.api.Task
-import org.gradle.api.file.SourceDirectorySet
 import org.gradle.api.plugins.JavaPluginConvention
-import org.gradle.api.tasks.SourceSetOutput
-import org.gradle.kotlin.dsl.creating
-import org.gradle.kotlin.dsl.extra
 import org.gradle.kotlin.dsl.the
 import java.io.File
 
@@ -40,7 +35,7 @@ fun File.createFolderIfNotExists(): Boolean {
 }
 
 fun File.setupAsMutableFile(): Boolean {
-    if (!isFile && !canRead() && !canWrite())  return false
+    if (!isFile && !canRead() && !canWrite()) return false
 
     return createFileIfNotExists()
 }

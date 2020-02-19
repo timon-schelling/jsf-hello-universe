@@ -5,7 +5,6 @@ import de.timokrates.accessgranted.permissions.PermissionId
 import de.timokrates.accessgranted.token.TokenId
 import de.timokrates.accessgranted.user.UserId
 import io.kotlintest.IsolationMode
-import io.kotlintest.TestCaseOrder
 import io.kotlintest.matchers.collections.shouldHaveSize
 import io.kotlintest.matchers.types.shouldBeNull
 import io.kotlintest.matchers.types.shouldBeSameInstanceAs
