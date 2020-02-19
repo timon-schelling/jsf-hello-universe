@@ -9,4 +9,6 @@ open class Id(private val value: String) {
     }
 
     override fun hashCode() = value.hashCode()
+
+    override fun toString() = value
 }

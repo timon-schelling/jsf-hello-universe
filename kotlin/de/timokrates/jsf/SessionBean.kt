@@ -1,12 +1,12 @@
 package de.timokrates.jsf
 
+import de.timokrates.Service
 import javax.faces.bean.ManagedBean
 import javax.faces.bean.SessionScoped
 
 @ManagedBean
 @SessionScoped
-class HelloBean {
-
-    var name: String? = null
-
+class Bean {
+    val allPermissions
+        get() = Service.allPermissions()
 }
