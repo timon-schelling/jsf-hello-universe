@@ -1,4 +1,4 @@
-package de.timokrates.jsf.hello.universe
+package de.timokrates.jsf
 
 import javax.faces.bean.ManagedBean
 import javax.faces.bean.SessionScoped
