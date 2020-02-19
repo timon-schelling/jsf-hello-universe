@@ -1,4 +1,4 @@
-# Task OK internship: Backend functionality should be implemented, which enables user administration (English Version, [German Version](#objektmodell:))
+# Task OK internship: Backend functionality should be implemented, which enables user administration (English Version, [German Version](#objektmodell))
 ## object model:
 - there are users, user permissions and user groups
 ## architecture:
