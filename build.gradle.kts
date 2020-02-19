@@ -76,13 +76,21 @@ allprojects {
             add("compile", project(it.path))
             add("archives", project(it.path))
         }
+
+        compile("io.kotlintest:kotlintest-runner-junit5:3.3.2")
+    }
+
+    tasks.test {
+        useJUnitPlatform()
+        testLogging {
+            events("passed", "skipped", "failed")
+        }
     }
 
     val compileKotlin: KotlinCompile by tasks
     compileKotlin.apply {
 
     }
-
 
     val jar: Jar by tasks
     jar.apply {
