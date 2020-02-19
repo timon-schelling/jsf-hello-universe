@@ -1,6 +1,6 @@
-package de.timokrates.jsf.hello.universe.user
+package de.timokrates.accessgranted
 
-open class Id(private val value: String) : Comparable<String> by value, CharSequence by value {
+open class Id(private val value: String) {
     override fun equals(other: Any?): Boolean {
         if (other === this) return true
         if (other == null) return false
