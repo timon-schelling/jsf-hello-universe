@@ -69,6 +69,8 @@ allprojects {
         compile(Deps.apacheHttpClient)
         compile(Deps.jsonSimple)
         compile(Deps.jacksonMapper)
+        compile(Deps.kotlinCoroutines)
+        compile(Deps.kotlinSerializationRuntime)
         subprojects.forEach {
             project(it.path)
             add("compile", project(it.path))
