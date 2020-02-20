@@ -1,6 +1,5 @@
 package de.timokrates.accessgranted
 
-import de.timokrates.accessgranted.Repository
 import de.timokrates.accessgranted.group.ListGroupRepository
 import de.timokrates.accessgranted.permissions.ListPermissionRepository
 import de.timokrates.accessgranted.token.ListTokenRepository

@@ -6,8 +6,8 @@ import de.timokrates.accessgranted.token.TokenRepository
 import de.timokrates.accessgranted.user.UserRepository
 
 interface Repository {
-    val tokens : TokenRepository
-    val users : UserRepository
-    val groups : GroupRepository
-    val permissions : PermissionRepository
+    val tokens: TokenRepository
+    val users: UserRepository
+    val groups: GroupRepository
+    val permissions: PermissionRepository
 }
