@@ -1,6 +1,7 @@
 package de.timokrates.accessgranted.repository
 
 open class Id(val value: String) {
+
     override fun equals(other: Any?): Boolean {
         if (other === this) return true
         if (other == null) return false

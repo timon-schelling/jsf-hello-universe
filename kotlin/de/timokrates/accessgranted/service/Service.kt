@@ -10,6 +10,7 @@ import de.timokrates.accessgranted.repository.user.UserId
 object Service {
 
     object Permissions {
+
         fun add(permissionId: PermissionId) {
             IHateGlobalState.permissions.find(permissionId) ?: IHateGlobalState.permissions.add(permissionId)
         }
@@ -27,9 +28,11 @@ object Service {
         fun all(): List<Permission> = IHateGlobalState.permissions.map { it }
 
         fun allIds(): List<PermissionId> = all().map { it.id }
+
     }
 
     object Users {
+
         fun add(userId: UserId) {
             IHateGlobalState.users.find(userId) ?: IHateGlobalState.users.add(userId)
         }
@@ -47,9 +50,11 @@ object Service {
         fun all(): List<User> = IHateGlobalState.users.map { it }
 
         fun allIds(): List<UserId> = all().map { it.id }
+
     }
 
     object Groups {
+
         fun add(groupId: GroupId) {
             IHateGlobalState.groups.find(groupId) ?: IHateGlobalState.groups.add(groupId)
         }
@@ -67,5 +72,6 @@ object Service {
         fun all(): List<Group> = IHateGlobalState.groups.map { it }
 
         fun allIds(): List<GroupId> = all().map { it.id }
+
     }
 }
