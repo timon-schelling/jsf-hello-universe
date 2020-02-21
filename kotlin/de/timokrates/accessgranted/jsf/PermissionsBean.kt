@@ -10,7 +10,7 @@ import javax.faces.bean.SessionScoped
 @SessionScoped
 class PermissionsBean : Serializable {
 
-    var addPermission: String = ""
+    var addPermissionText: String = ""
 
     var selectedPermission: String = ""
         get() = Service.Permissions.find(PermissionId(field))?.id?.value ?: ""
@@ -22,10 +22,10 @@ class PermissionsBean : Serializable {
 
     val allPermissions get() = Service.Permissions.allIds().map { it.value }
 
-    fun addNewPermission() {
-        if (addPermission.isBlank()) return
-        Service.Permissions.add(PermissionId(addPermission))
-        addPermission = ""
+    fun addPermission() {
+        if (addPermissionText.isBlank()) return
+        Service.Permissions.add(PermissionId(addPermissionText))
+        addPermissionText = ""
     }
 
     fun deleteSelectedPermission() {

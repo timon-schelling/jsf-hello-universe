@@ -29,12 +29,12 @@
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col col-7 col-sm-8 col-md-9 col-lg-10 col-xl-11">
-                                        <h:inputText value="#{permissionsBean.addPermission}"
-                                                     action="#{permissionsBean.addNewPermission}"
+                                        <h:inputText value="#{permissionsBean.addPermissionText}"
+                                                     action="#{permissionsBean.addPermission}"
                                                      class="form-control"></h:inputText>
                                     </div>
                                     <div class="col col-5 col-sm-4 col-md-3 col-lg-2 col-xl-1">
-                                        <h:commandButton value="add" action="#{permissionsBean.addNewPermission}"
+                                        <h:commandButton value="add" action="#{permissionsBean.addPermission}"
                                                          class="btn btn-primary"/>
                                     </div>
                                 </div>
@@ -72,11 +72,11 @@
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
-                                        <h:inputText value="#{groupsBean.addGroup}" action="#{groupsBean.addNewGroup}"
+                                        <h:inputText value="#{groupsBean.addGroupText}" action="#{groupsBean.addGroup}"
                                                      class="form-control"></h:inputText>
                                     </div>
                                     <div class="col col-5 col-sm-4 col-md-3 col-lg-2">
-                                        <h:commandButton value="add" action="#{groupsBean.addNewGroup}"
+                                        <h:commandButton value="add" action="#{groupsBean.addGroup}"
                                                          class="btn btn-primary"/>
                                     </div>
                                 </div>
@@ -112,14 +112,14 @@
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
-                                        <h:selectOneMenu immediate="true" value="#{groupsBean.addPermission}"
+                                        <h:selectOneMenu immediate="true" value="#{groupsBean.addPermissionText}"
                                                          class="form-control">
                                             <f:selectItems value="#{groupsBean.availablePermissions}"/>
                                             <f:ajax/>
                                         </h:selectOneMenu>
                                     </div>
                                     <div class="col col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2">
-                                        <h:commandButton value="add" action="#{groupsBean.addNewPermission}"
+                                        <h:commandButton value="add" action="#{groupsBean.addPermission}"
                                                          class="btn btn-primary"/>
                                     </div>
                                 </div>
@@ -157,11 +157,11 @@
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
-                                        <h:inputText value="#{usersBean.addUser}" action="#{usersBean.addNewUser}"
+                                        <h:inputText value="#{usersBean.addUserText}" action="#{usersBean.addUser}"
                                                      class="form-control"></h:inputText>
                                     </div>
                                     <div class="col col-5 col-sm-4 col-md-3 col-lg-2">
-                                        <h:commandButton value="add" action="#{usersBean.addNewUser}"
+                                        <h:commandButton value="add" action="#{usersBean.addUser}"
                                                          class="btn btn-primary"/>
                                     </div>
                                 </div>
@@ -196,14 +196,14 @@
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
-                                        <h:selectOneMenu immediate="true" value="#{usersBean.addGroup}"
+                                        <h:selectOneMenu immediate="true" value="#{usersBean.addGroupText}"
                                                          class="form-control">
                                             <f:selectItems value="#{usersBean.availableGroups}"/>
                                             <f:ajax/>
                                         </h:selectOneMenu>
                                     </div>
                                     <div class="col col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2">
-                                        <h:commandButton value="add" action="#{usersBean.addNewGroup}"
+                                        <h:commandButton value="add" action="#{usersBean.addGroup}"
                                                          class="btn btn-primary"/>
                                     </div>
                                 </div>

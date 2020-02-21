@@ -10,7 +10,7 @@ import javax.faces.bean.SessionScoped
 @SessionScoped
 class UsersBean : Serializable {
 
-    var addUser: String = ""
+    var addUserText: String = ""
 
     var selectedUser: String = ""
         get() = Service.Users.find(field)?.id?.value ?: ""
@@ -22,17 +22,17 @@ class UsersBean : Serializable {
 
     val allUsers get() = Service.Users.allIds().map { it.value }
 
-    fun addNewUser() {
-        if (addUser.isBlank()) return
-        Service.Users.add(addUser)
-        addUser = ""
+    fun addUser() {
+        if (addUserText.isBlank()) return
+        Service.Users.add(addUserText)
+        addUserText = ""
     }
 
     fun deleteSelectedUser() {
         Service.Users.delete(selectedUser)
     }
 
-    var addGroup: String = ""
+    var addGroupText: String = ""
 
     var selectedGroup: String = ""
         get() = Service.Groups.find(field)?.id?.value ?: ""
@@ -61,14 +61,12 @@ class UsersBean : Serializable {
         }
 
 
-    fun openUser() {
+    fun openUser() { }
 
-    }
-
-    fun addNewGroup() {
-        if (addGroup.isBlank()) return
-        Service.Users.find(selectedUser)?.also { it.groups.add(GroupId(addGroup)) }
-        addGroup = ""
+    fun addGroup() {
+        if (addGroupText.isBlank()) return
+        Service.Users.find(selectedUser)?.also { it.groups.add(GroupId(addGroupText)) }
+        addGroupText = ""
     }
 
     fun removeSelectedGroup() {

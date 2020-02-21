@@ -1,7 +1,6 @@
 package de.timokrates.accessgranted.jsf
 
 import de.timokrates.accessgranted.service.Service
-import de.timokrates.accessgranted.repository.group.GroupId
 import de.timokrates.accessgranted.repository.permissions.PermissionId
 import java.io.Serializable
 import javax.faces.bean.ManagedBean
@@ -11,7 +10,7 @@ import javax.faces.bean.SessionScoped
 @SessionScoped
 class GroupsBean : Serializable {
 
-    var addGroup: String = ""
+    var addGroupText: String = ""
 
     var selectedGroup: String = ""
         get() = Service.Groups.find(field)?.id?.value ?: ""
@@ -23,17 +22,17 @@ class GroupsBean : Serializable {
 
     val allGroups get() = Service.Groups.allIds().map { it.value }
 
-    fun addNewGroup() {
-        if (addGroup.isBlank()) return
-        Service.Groups.add(addGroup)
-        addGroup = ""
+    fun addGroup() {
+        if (addGroupText.isBlank()) return
+        Service.Groups.add(addGroupText)
+        addGroupText = ""
     }
 
     fun deleteSelectedGroup() {
         Service.Groups.delete(selectedGroup)
     }
 
-    var addPermission: String = ""
+    var addPermissionText: String = ""
 
     var selectedPermission: String = ""
         get() = Service.Permissions.find(field)?.id?.value ?: ""
@@ -62,14 +61,12 @@ class GroupsBean : Serializable {
         }
 
 
-    fun openGroup() {
+    fun openGroup() { }
 
-    }
-
-    fun addNewPermission() {
-        if (addPermission.isBlank()) return
-        Service.Groups.find(selectedGroup)?.also { it.permissions.add(PermissionId(addPermission)) }
-        addPermission = ""
+    fun addPermission() {
+        if (addPermissionText.isBlank()) return
+        Service.Groups.find(selectedGroup)?.also { it.permissions.add(PermissionId(addPermissionText)) }
+        addPermissionText = ""
     }
 
     fun removeSelectedPermission() {
