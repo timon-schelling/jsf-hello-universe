@@ -13,22 +13,22 @@ class PermissionsBean : Serializable {
     var addPermission: String = ""
 
     var selectedPermission: String = ""
-        get() = Service.findPermission(PermissionId(field))?.id?.value ?: ""
+        get() = Service.Permissions.find(PermissionId(field))?.id?.value ?: ""
         set(value) {
-            val permission = Service.findPermission(PermissionId(value))
+            val permission = Service.Permissions.find(PermissionId(value))
             permission ?: return
             field = permission.id.value
         }
 
-    val allPermissions get() = Service.allPermissionIds().map { it.value }
+    val allPermissions get() = Service.Permissions.allIds().map { it.value }
 
     fun addNewPermission() {
         if (addPermission.isBlank()) return
-        Service.addPermission(PermissionId(addPermission))
+        Service.Permissions.add(PermissionId(addPermission))
         addPermission = ""
     }
 
     fun deleteSelectedPermission() {
-        Service.deletePermission(PermissionId(selectedPermission))
+        Service.Permissions.delete(PermissionId(selectedPermission))
     }
 }

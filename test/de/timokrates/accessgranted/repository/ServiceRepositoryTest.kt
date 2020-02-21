@@ -1,9 +1,11 @@
 package de.timokrates.accessgranted.repository
 
+import de.timokrates.accessgranted.randomAlphanumericString
 import de.timokrates.accessgranted.repository.group.GroupId
 import de.timokrates.accessgranted.repository.permissions.PermissionId
 import de.timokrates.accessgranted.repository.token.TokenId
 import de.timokrates.accessgranted.repository.user.UserId
+import de.timokrates.accessgranted.service.ServiceRepository
 import io.kotlintest.IsolationMode
 import io.kotlintest.matchers.collections.shouldHaveSize
 import io.kotlintest.matchers.types.shouldBeNull

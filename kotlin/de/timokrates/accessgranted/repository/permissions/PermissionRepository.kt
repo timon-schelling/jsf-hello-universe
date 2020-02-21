@@ -1,7 +1,9 @@
 package de.timokrates.accessgranted.repository.permissions
 
-interface PermissionRepository : Iterable<Permission> {
-    fun add(permissionId: PermissionId): Permission
-    fun remove(permissionId: PermissionId): Permission?
-    fun find(permissionId: PermissionId): Permission?
+import de.timokrates.accessgranted.repository.IdRepository
+
+interface PermissionRepository : IdRepository<PermissionId, Permission> {
+    override fun add(id: PermissionId): Permission
+    override fun remove(id: PermissionId): Permission?
+    override fun find(id: PermissionId): Permission?
 }

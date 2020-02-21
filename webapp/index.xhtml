@@ -9,8 +9,11 @@
     <title>hello universe</title>
     <h:outputStylesheet library="bootstrap-4.4.1-dist" name="css/bootstrap.min.css"/>
     <style type="text/css">
-        .form-row, .row {
+        .form-row, .card {
             margin-bottom: 0.5rem;
+        }
+        .btn {
+            width: 100%;
         }
     </style>
 </h:head>
@@ -26,23 +29,23 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="form-row">
-                                    <div class="col col-10">
+                                    <div class="col col-7 col-sm-8 col-md-9 col-lg-10 col-xl-11">
                                         <h:inputText value="#{permissionsBean.addPermission}" action="#{permissionsBean.addNewPermission}" class="form-control"></h:inputText>
                                     </div>
-                                    <div class="col col-2">
+                                    <div class="col col-5 col-sm-4 col-md-3 col-lg-2 col-xl-1">
                                         <h:commandButton value="add" action="#{permissionsBean.addNewPermission}" class="btn btn-primary"/>
                                     </div>
                                 </div>
 
                                 <div class="form-row">
-                                    <div class="col col-10">
+                                    <div class="col col-7 col-sm-8 col-md-9 col-lg-10 col-xl-11">
                                         <h:selectOneListbox immediate="true" size="10" value="#{permissionsBean.selectedPermission}"
                                                             class="form-control">
                                             <f:selectItems value="#{permissionsBean.allPermissions}"/>
                                             <f:ajax/>
                                         </h:selectOneListbox>
                                     </div>
-                                    <div class="col col-2">
+                                    <div class="col col-5 col-sm-4 col-md-3 col-lg-2 col-xl-1">
                                         <h:commandButton value="delete" immediate="true" action="#{permissionsBean.deleteSelectedPermission}"
                                                          class="btn btn-primary"/>
                                     </div>
@@ -56,32 +59,66 @@
 
         <h:form>
             <div class="row">
-                <div class="col-12">
+                <div class="col col-12 col-xl-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Users</h4>
+                            <h4>Groups</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="form-row">
-                                    <div class="col col-10">
-                                        <h:inputText value="#{usersBean.addUser}" action="#{usersBean.addNewUser}" class="form-control"></h:inputText>
+                                    <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
+                                        <h:inputText value="#{groupsBean.addGroup}" action="#{groupsBean.addNewGroup}" class="form-control"></h:inputText>
                                     </div>
-                                    <div class="col col-2">
-                                        <h:commandButton value="add" action="#{usersBean.addNewUser}" class="btn btn-primary"/>
+                                    <div class="col col-5 col-sm-4 col-md-3 col-lg-2">
+                                        <h:commandButton value="add" action="#{groupsBean.addNewGroup}" class="btn btn-primary"/>
                                     </div>
                                 </div>
 
                                 <div class="form-row">
-                                    <div class="col col-10">
-                                        <h:selectOneListbox immediate="true" size="10" value="#{usersBean.selectedUser}"
+                                    <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
+                                        <h:selectOneListbox immediate="true" size="10" value="#{groupsBean.selectedGroup}"
                                                             class="form-control">
-                                            <f:selectItems value="#{usersBean.allUsers}"/>
+                                            <f:selectItems value="#{groupsBean.allGroups}"/>
                                             <f:ajax/>
                                         </h:selectOneListbox>
                                     </div>
-                                    <div class="col col-2">
-                                        <h:commandButton value="delete" immediate="true" action="#{usersBean.deleteSelectedUser}"
+                                    <div class="col col-5 col-sm-4 col-md-3 col-lg-2">
+                                        <h:commandButton value="delete" immediate="true" action="#{groupsBean.deleteSelectedGroup}"
+                                                         class="btn btn-primary"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col col-12 col-xl-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Group Permissions</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
+                                        <h:inputText value="#{groupsBean.addGroup}" action="#{groupsBean.addNewGroup}" class="form-control"></h:inputText>
+                                    </div>
+                                    <div class="col col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                                        <h:commandButton value="add" action="#{groupsBean.addNewGroup}" class="btn btn-primary"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
+                                        <h:selectOneListbox immediate="true" size="10" value="#{groupsBean.selectedGroup}"
+                                                            class="form-control">
+                                            <f:selectItems value="#{groupsBean.allGroups}"/>
+                                            <f:ajax/>
+                                        </h:selectOneListbox>
+                                    </div>
+                                    <div class="col col-5 col-sm-4 col-md-3 col-lg-2">
+                                        <h:commandButton value="delete" immediate="true" action="#{groupsBean.deleteSelectedGroup}"
                                                          class="btn btn-primary"/>
                                     </div>
                                 </div>
@@ -94,32 +131,66 @@
 
         <h:form>
             <div class="row">
-                <div class="col-12">
+                <div class="col col-12 col-xl-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Groups</h4>
+                            <h4>Users</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="form-row">
-                                    <div class="col col-10">
-                                        <h:inputText value="#{groupsBean.addGroup}" action="#{groupsBean.addNewGroup}" class="form-control"></h:inputText>
+                                    <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
+                                        <h:inputText value="#{usersBean.addUser}" action="#{usersBean.addNewUser}" class="form-control"></h:inputText>
                                     </div>
-                                    <div class="col col-2">
-                                        <h:commandButton value="add" action="#{groupsBean.addNewGroup}" class="btn btn-primary"/>
+                                    <div class="col col-5 col-sm-4 col-md-3 col-lg-2">
+                                        <h:commandButton value="add" action="#{usersBean.addNewUser}" class="btn btn-primary"/>
                                     </div>
                                 </div>
 
                                 <div class="form-row">
-                                    <div class="col col-10">
-                                        <h:selectOneListbox immediate="true" size="10" value="#{groupsBean.selectedGroup}"
+                                    <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
+                                        <h:selectOneListbox immediate="true" size="10" value="#{usersBean.selectedUser}"
                                                             class="form-control">
-                                            <f:selectItems value="#{groupsBean.allGroups}"/>
+                                            <f:selectItems value="#{usersBean.allUsers}"/>
                                             <f:ajax/>
                                         </h:selectOneListbox>
                                     </div>
-                                    <div class="col col-2">
-                                        <h:commandButton value="delete" immediate="true" action="#{groupsBean.deleteSelectedGroup}"
+                                    <div class="col col-5 col-sm-4 col-md-3 col-lg-2">
+                                        <h:commandButton value="delete" immediate="true" action="#{usersBean.deleteSelectedUser}"
+                                                         class="btn btn-primary"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col col-12 col-xl-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Users</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
+                                        <h:inputText value="#{usersBean.addUser}" action="#{usersBean.addNewUser}" class="form-control"></h:inputText>
+                                    </div>
+                                    <div class="col col-5 col-sm-4 col-md-3 col-lg-2">
+                                        <h:commandButton value="add" action="#{usersBean.addNewUser}" class="btn btn-primary"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
+                                        <h:selectOneListbox immediate="true" size="10" value="#{usersBean.selectedUser}"
+                                                            class="form-control">
+                                            <f:selectItems value="#{usersBean.allUsers}"/>
+                                            <f:ajax/>
+                                        </h:selectOneListbox>
+                                    </div>
+                                    <div class="col col-5 col-sm-4 col-md-3 col-lg-2">
+                                        <h:commandButton value="delete" immediate="true" action="#{usersBean.deleteSelectedUser}"
                                                          class="btn btn-primary"/>
                                     </div>
                                 </div>

@@ -13,22 +13,22 @@ class GroupsBean : Serializable {
     var addGroup: String = ""
 
     var selectedGroup: String = ""
-        get() = Service.findGroup(GroupId(field))?.id?.value ?: ""
+        get() = Service.Groups.find(GroupId(field))?.id?.value ?: ""
         set(value) {
-            val group = Service.findGroup(GroupId(value))
+            val group = Service.Groups.find(GroupId(value))
             group ?: return
             field = group.id.value
         }
 
-    val allGroups get() = Service.allGroupIds().map { it.value }
+    val allGroups get() = Service.Groups.allIds().map { it.value }
 
     fun addNewGroup() {
         if (addGroup.isBlank()) return
-        Service.addGroup(GroupId(addGroup))
+        Service.Groups.add(GroupId(addGroup))
         addGroup = ""
     }
 
     fun deleteSelectedGroup() {
-        Service.deleteGroup(GroupId(selectedGroup))
+        Service.Groups.delete(GroupId(selectedGroup))
     }
 }

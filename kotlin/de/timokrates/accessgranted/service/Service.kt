@@ -9,41 +9,45 @@ import de.timokrates.accessgranted.repository.user.UserId
 
 object Service {
 
-    fun addPermission(permissionId: PermissionId) {
-        IHateGlobalState.permissions.find(permissionId) ?: IHateGlobalState.permissions.add(permissionId)
+    object Permissions {
+        fun add(permissionId: PermissionId) {
+            IHateGlobalState.permissions.find(permissionId) ?: IHateGlobalState.permissions.add(permissionId)
+        }
+
+        fun delete(permissionId: PermissionId) = IHateGlobalState.permissions.remove(permissionId)
+
+        fun find(permissionId: PermissionId) = IHateGlobalState.permissions.find(permissionId)
+
+        fun all(): List<Permission> = IHateGlobalState.permissions.map { it }
+
+        fun allIds(): List<PermissionId> = all().map { it.id }
     }
 
-    fun deletePermission(permissionId: PermissionId) = IHateGlobalState.permissions.remove(permissionId)
+    object Users {
+        fun add(userId: UserId) {
+            IHateGlobalState.users.find(userId) ?: IHateGlobalState.users.add(userId)
+        }
 
-    fun findPermission(permissionId: PermissionId) = IHateGlobalState.permissions.find(permissionId)
+        fun delete(userId: UserId) = IHateGlobalState.users.remove(userId)
 
-    fun allPermissions(): List<Permission> = IHateGlobalState.permissions.map { it }
+        fun find(userId: UserId) = IHateGlobalState.users.find(userId)
 
-    fun allPermissionIds(): List<PermissionId> = allPermissions().map { it.id }
+        fun all(): List<User> = IHateGlobalState.users.map { it }
 
-
-    fun addUser(userId: UserId) {
-        IHateGlobalState.users.find(userId) ?: IHateGlobalState.users.add(userId)
+        fun allIds(): List<UserId> = all().map { it.id }
     }
 
-    fun deleteUser(userId: UserId) = IHateGlobalState.users.remove(userId)
+    object Groups {
+        fun add(groupId: GroupId) {
+            IHateGlobalState.groups.find(groupId) ?: IHateGlobalState.groups.add(groupId)
+        }
 
-    fun findUser(userId: UserId) = IHateGlobalState.users.find(userId)
+        fun delete(groupId: GroupId) = IHateGlobalState.groups.remove(groupId)
 
-    fun allUsers(): List<User> = IHateGlobalState.users.map { it }
+        fun find(groupId: GroupId) = IHateGlobalState.groups.find(groupId)
 
-    fun allUserIds(): List<UserId> = allUsers().map { it.id }
+        fun all(): List<Group> = IHateGlobalState.groups.map { it }
 
-
-    fun addGroup(groupId: GroupId) {
-        IHateGlobalState.groups.find(groupId) ?: IHateGlobalState.groups.add(groupId)
+        fun allIds(): List<GroupId> = all().map { it.id }
     }
-
-    fun deleteGroup(groupId: GroupId) = IHateGlobalState.groups.remove(groupId)
-
-    fun findGroup(groupId: GroupId) = IHateGlobalState.groups.find(groupId)
-
-    fun allGroups(): List<Group> = IHateGlobalState.groups.map { it }
-
-    fun allGroupIds(): List<GroupId> = allGroups().map { it.id }
 }

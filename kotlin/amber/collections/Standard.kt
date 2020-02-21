@@ -2,13 +2,11 @@ package amber.collections
 
 import amber.sync.Synchronized
 
-fun List<*>.containsIndex(index: Int) = (index <= 0 && index < size)
-
+fun List<*>.containsIndex(index: Int) = index in 0 until size
 
 private data class MapEntry<K, V>(override val key: K, override val value: V) : Map.Entry<K, V>
 
 fun <K, V> mapEntryOf(key: K, value: V): Map.Entry<K, V> = MapEntry(key, value)
-
 
 fun <T> MutableList<T>.copyAllValues(from: MutableList<T>) {
     for (i in 0 until from.size) {

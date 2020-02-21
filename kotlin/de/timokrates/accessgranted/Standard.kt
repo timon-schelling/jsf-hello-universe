@@ -1,4 +1,4 @@
-package de.timokrates.accessgranted.repository
+package de.timokrates.accessgranted
 
 val ALPHANUMERIC_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 

@@ -13,22 +13,22 @@ class UsersBean : Serializable {
     var addUser: String = ""
 
     var selectedUser: String = ""
-        get() = Service.findUser(UserId(field))?.id?.value ?: ""
+        get() = Service.Users.find(UserId(field))?.id?.value ?: ""
         set(value) {
-            val user = Service.findUser(UserId(value))
+            val user = Service.Users.find(UserId(value))
             user ?: return
             field = user.id.value
         }
 
-    val allUsers get() = Service.allUserIds().map { it.value }
+    val allUsers get() = Service.Users.allIds().map { it.value }
 
     fun addNewUser() {
         if (addUser.isBlank()) return
-        Service.addUser(UserId(addUser))
+        Service.Users.add(UserId(addUser))
         addUser = ""
     }
 
     fun deleteSelectedUser() {
-        Service.deleteUser(UserId(selectedUser))
+        Service.Users.delete(UserId(selectedUser))
     }
 }

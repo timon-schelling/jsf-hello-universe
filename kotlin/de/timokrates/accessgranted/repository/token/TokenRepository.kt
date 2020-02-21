@@ -1,7 +1,9 @@
 package de.timokrates.accessgranted.repository.token
 
-interface TokenRepository : Iterable<Token> {
-    fun add(tokenId: TokenId): Token
-    fun remove(tokenId: TokenId): Token?
-    fun find(tokenId: TokenId): Token?
+import de.timokrates.accessgranted.repository.IdRepository
+
+interface TokenRepository : IdRepository<TokenId, Token> {
+    override fun add(id: TokenId): Token
+    override fun remove(id: TokenId): Token?
+    override fun find(id: TokenId): Token?
 }

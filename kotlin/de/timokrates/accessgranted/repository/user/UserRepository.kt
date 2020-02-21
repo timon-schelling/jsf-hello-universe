@@ -1,10 +1,11 @@
 package de.timokrates.accessgranted.repository.user
 
+import de.timokrates.accessgranted.repository.IdRepository
 import de.timokrates.accessgranted.repository.group.GroupId
 
-interface UserRepository : Iterable<User> {
+interface UserRepository : IdRepository<UserId, User> {
     fun add(userId: UserId, groups: List<GroupId>): User
-    fun add(userId: UserId): User
-    fun remove(userId: UserId): User?
-    fun find(userId: UserId): User?
+    override fun add(id: UserId): User
+    override fun remove(id: UserId): User?
+    override fun find(id: UserId): User?
 }

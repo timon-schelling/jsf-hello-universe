@@ -1,6 +1,6 @@
 package de.timokrates.accessgranted.repository
 
-import de.timokrates.accessgranted.repository.randomAlphanumericString
+import de.timokrates.accessgranted.randomAlphanumericString
 import io.kotlintest.matchers.boolean.shouldBeTrue
 import io.kotlintest.matchers.string.shouldHaveLength
 import io.kotlintest.specs.AnnotationSpec
