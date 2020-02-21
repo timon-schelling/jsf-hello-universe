@@ -34,17 +34,16 @@ class GroupsBean : Serializable {
 
     val availablePermissions: List<String>
         get() {
-            return Service.Groups.find(selectedGroup)?.permissions?.map { it.value } ?: emptyList()
-        }
-
-    val groupPermissions: List<String>
-        get() {
             val allIds = Service.Permissions.allIds()
             val filteredIds = allIds.filter {
                 !(Service.Groups.find(selectedGroup)?.permissions?.contains(it) ?: false)
             }
             return filteredIds.map { it.value }
         }
+
+    val groupPermissions: List<String>
+        get() = Service.Groups.find(selectedGroup)?.permissions?.map { it.value } ?: emptyList()
+
 
     fun addGroup() {
         if (addGroupText.isBlank()) return

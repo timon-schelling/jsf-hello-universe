@@ -41,7 +41,7 @@
 
                                 <div class="form-row">
                                     <div class="col col-7 col-sm-8 col-md-9 col-lg-10 col-xl-11">
-                                        <h:selectOneListbox immediate="true" size="10"
+                                        <h:selectOneListbox immediate="true" size="5"
                                                             value="#{permissionsBean.selectedPermission}"
                                                             class="form-control">
                                             <f:selectItems value="#{permissionsBean.allPermissions}"/>
@@ -83,7 +83,7 @@
 
                                 <div class="form-row">
                                     <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
-                                        <h:selectOneListbox immediate="true" size="10"
+                                        <h:selectOneListbox immediate="true" size="5"
                                                             value="#{groupsBean.selectedGroup}"
                                                             class="form-control">
                                             <f:selectItems value="#{groupsBean.allGroups}"/>
@@ -126,7 +126,7 @@
 
                                 <div class="form-row">
                                     <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
-                                        <h:selectOneListbox immediate="true" size="10"
+                                        <h:selectOneListbox immediate="true" size="5"
                                                             value="#{groupsBean.selectedPermission}"
                                                             class="form-control">
                                             <f:selectItems value="#{groupsBean.groupPermissions}"/>
@@ -168,7 +168,7 @@
 
                                 <div class="form-row">
                                     <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
-                                        <h:selectOneListbox immediate="true" size="10" value="#{usersBean.selectedUser}"
+                                        <h:selectOneListbox immediate="true" size="5" value="#{usersBean.selectedUser}"
                                                             class="form-control">
                                             <f:selectItems value="#{usersBean.allUsers}"/>
                                             <f:ajax/>
@@ -210,7 +210,7 @@
 
                                 <div class="form-row">
                                     <div class="col col-7 col-sm-8 col-md-9 col-lg-10">
-                                        <h:selectOneListbox immediate="true" size="10"
+                                        <h:selectOneListbox immediate="true" size="5"
                                                             value="#{usersBean.selectedGroup}"
                                                             class="form-control">
                                             <f:selectItems value="#{usersBean.userGroups}"/>

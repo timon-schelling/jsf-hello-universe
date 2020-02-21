@@ -34,17 +34,16 @@ class UsersBean : Serializable {
 
     val availableGroups: List<String>
         get() {
-            return Service.Users.find(selectedUser)?.groups?.map { it.value } ?: emptyList()
-        }
-
-    val userGroups: List<String>
-        get() {
             val allIds = Service.Groups.allIds()
             val filteredIds = allIds.filter {
                 !(Service.Users.find(selectedUser)?.groups?.contains(it) ?: false)
             }
             return filteredIds.map { it.value }
+
         }
+
+    val userGroups: List<String>
+        get() = Service.Users.find(selectedUser)?.groups?.map { it.value } ?: emptyList()
 
     fun addUser() {
         if (addUserText.isBlank()) return
