@@ -13,10 +13,7 @@ class ListUserRepository(
 
     private val users: MutableList<User> = users.sync(this)
 
-    override fun add(id: UserId, groups: List<GroupId>): User {
-        return User(id, groups.toMutableList())
-                .also { users.add(it) }
-    }
+    override fun add(id: UserId, groups: List<GroupId>): User = User(id, groups.toMutableList()).also { users.add(it) }
 
     override fun add(id: UserId) = add(id, mutableListOf())
 

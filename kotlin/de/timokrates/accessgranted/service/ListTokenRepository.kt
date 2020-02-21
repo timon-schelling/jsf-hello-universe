@@ -12,9 +12,7 @@ class ListTokenRepository(
 
     private val tokens: MutableList<Token> = tokens.sync(this)
 
-    override fun add(id: TokenId): Token = Token(
-            id
-    ).also { tokens.add(it) }
+    override fun add(id: TokenId): Token = Token(id).also { tokens.add(it) }
 
     override fun find(id: TokenId): Token? = tokens.find { it.id == id }
 
