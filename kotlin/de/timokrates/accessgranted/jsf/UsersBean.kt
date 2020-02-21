@@ -22,16 +22,6 @@ class UsersBean : Serializable {
 
     val allUsers get() = Service.Users.allIds().map { it.value }
 
-    fun addUser() {
-        if (addUserText.isBlank()) return
-        Service.Users.add(addUserText)
-        addUserText = ""
-    }
-
-    fun deleteSelectedUser() {
-        Service.Users.delete(selectedUser)
-    }
-
     var addGroupText: String = ""
 
     var selectedGroup: String = ""
@@ -44,33 +34,39 @@ class UsersBean : Serializable {
 
     val availableGroups: List<String>
         get() {
-            val allIds = Service.Groups.allIds()
-            val filteredIds = allIds.filter { group ->
-                Service.Users.find(selectedUser)?.groups?.none { it == group } ?: false
-            }
-            return filteredIds.map { it.value }
+            return Service.Users.find(selectedUser)?.groups?.map { it.value } ?: emptyList()
         }
 
     val userGroups: List<String>
         get() {
             val allIds = Service.Groups.allIds()
-            val filteredIds = allIds.filter { group ->
-                Service.Users.find(selectedUser)?.groups?.any { it == group } ?: false
+            val filteredIds = allIds.filter {
+                !(Service.Users.find(selectedUser)?.groups?.contains(it) ?: false)
             }
             return filteredIds.map { it.value }
         }
+
+    fun addUser() {
+        if (addUserText.isBlank()) return
+        Service.Users.add(addUserText)
+        addUserText = ""
+    }
+
+    fun deleteSelectedUser() {
+        Service.Users.delete(selectedUser)
+    }
 
 
     fun openUser() { }
 
     fun addGroup() {
         if (addGroupText.isBlank()) return
-        Service.Users.find(selectedUser)?.also { it.groups.add(GroupId(addGroupText)) }
+        Service.Users.addGroup(selectedUser, addGroupText)
         addGroupText = ""
     }
 
     fun removeSelectedGroup() {
-        Service.Users.find(selectedUser)?.also { it.groups.remove(GroupId(selectedGroup)) }
+        Service.Users.removeGroup(selectedUser, selectedGroup)
         selectedGroup = ""
     }
 }

@@ -51,6 +51,22 @@ object Service {
 
         fun allIds(): List<UserId> = all().map { it.id }
 
+        fun addGroup(userId: UserId, groupId: GroupId) {
+            find(userId)?.also { it.groups.add(groupId) }
+        }
+
+        fun addGroup(userId: String, groupId: String) {
+            addGroup(UserId(userId), GroupId(groupId))
+        }
+
+        fun removeGroup(userId: UserId, groupId: GroupId) {
+            find(userId)?.also { it.groups.remove(groupId) }
+        }
+
+        fun removeGroup(userId: String, groupId: String) {
+            removeGroup(UserId(userId), GroupId(groupId))
+        }
+
     }
 
     object Groups {
@@ -72,6 +88,22 @@ object Service {
         fun all(): List<Group> = IHateGlobalState.groups.map { it }
 
         fun allIds(): List<GroupId> = all().map { it.id }
+
+        fun addPermission(groupId: GroupId, permissionId: PermissionId) {
+            find(groupId)?.also { it.permissions.add(permissionId) }
+        }
+
+        fun addPermission(groupId: String, permissionId: String) {
+            addPermission(GroupId(groupId), PermissionId(permissionId))
+        }
+
+        fun removePermission(groupId: GroupId, permissionId: PermissionId) {
+            find(groupId)?.also { it.permissions.remove(permissionId) }
+        }
+
+        fun removePermission(groupId: String, permissionId: String) {
+            removePermission(GroupId(groupId), PermissionId(permissionId))
+        }
 
     }
 }

@@ -22,16 +22,6 @@ class GroupsBean : Serializable {
 
     val allGroups get() = Service.Groups.allIds().map { it.value }
 
-    fun addGroup() {
-        if (addGroupText.isBlank()) return
-        Service.Groups.add(addGroupText)
-        addGroupText = ""
-    }
-
-    fun deleteSelectedGroup() {
-        Service.Groups.delete(selectedGroup)
-    }
-
     var addPermissionText: String = ""
 
     var selectedPermission: String = ""
@@ -44,33 +34,39 @@ class GroupsBean : Serializable {
 
     val availablePermissions: List<String>
         get() {
-            val allIds = Service.Permissions.allIds()
-            val filteredIds = allIds.filter { permission ->
-                Service.Groups.find(selectedGroup)?.permissions?.none { it == permission } ?: false
-            }
-            return filteredIds.map { it.value }
+            return Service.Groups.find(selectedGroup)?.permissions?.map { it.value } ?: emptyList()
         }
 
     val groupPermissions: List<String>
         get() {
             val allIds = Service.Permissions.allIds()
-            val filteredIds = allIds.filter { permission ->
-                Service.Groups.find(selectedGroup)?.permissions?.any { it == permission } ?: false
+            val filteredIds = allIds.filter {
+                !(Service.Groups.find(selectedGroup)?.permissions?.contains(it) ?: false)
             }
             return filteredIds.map { it.value }
         }
+
+    fun addGroup() {
+        if (addGroupText.isBlank()) return
+        Service.Groups.add(addGroupText)
+        addGroupText = ""
+    }
+
+    fun deleteSelectedGroup() {
+        Service.Groups.delete(selectedGroup)
+    }
 
 
     fun openGroup() { }
 
     fun addPermission() {
         if (addPermissionText.isBlank()) return
-        Service.Groups.find(selectedGroup)?.also { it.permissions.add(PermissionId(addPermissionText)) }
+        Service.Groups.addPermission(selectedGroup, addPermissionText)
         addPermissionText = ""
     }
 
     fun removeSelectedPermission() {
-        Service.Groups.find(selectedGroup)?.also { it.permissions.remove(PermissionId(selectedPermission)) }
+        Service.Groups.removePermission(selectedGroup, selectedPermission)
         selectedPermission = ""
     }
 }
