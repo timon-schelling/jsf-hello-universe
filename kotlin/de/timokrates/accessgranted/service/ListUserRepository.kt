@@ -13,16 +13,16 @@ class ListUserRepository(
 
     private val users: MutableList<User> = users.sync(this)
 
-    override fun add(userId: UserId, groups: List<GroupId>): User {
-        return User(userId, groups.toMutableList())
+    override fun add(id: UserId, groups: List<GroupId>): User {
+        return User(id, groups.toMutableList())
                 .also { users.add(it) }
     }
 
-    override fun add(userId: UserId) = add(userId, mutableListOf())
+    override fun add(id: UserId) = add(id, mutableListOf())
 
-    override fun remove(userId: UserId): User? = find(userId).also { users.remove(it) }
+    override fun remove(id: UserId): User? = find(id).also { users.remove(it) }
 
-    override fun find(userId: UserId): User? = users.find { it.id == userId }
+    override fun find(id: UserId): User? = users.find { it.id == id }
 
     override fun iterator() = users.iterator()
 }

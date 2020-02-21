@@ -12,13 +12,13 @@ class ListPermissionRepository(
 
     private val permissions: MutableList<Permission> = permissions.sync(this)
 
-    override fun add(permissionId: PermissionId): Permission = Permission(
-            permissionId
+    override fun add(id: PermissionId): Permission = Permission(
+            id
     ).also { permissions.add(it) }
 
-    override fun remove(permissionId: PermissionId): Permission? = find(permissionId).also { permissions.remove(it) }
+    override fun remove(id: PermissionId): Permission? = find(id).also { permissions.remove(it) }
 
-    override fun find(permissionId: PermissionId): Permission? = permissions.find { it.id == permissionId }
+    override fun find(id: PermissionId): Permission? = permissions.find { it.id == id }
 
     override fun iterator() = permissions.iterator()
 }

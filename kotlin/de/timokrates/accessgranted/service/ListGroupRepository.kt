@@ -12,14 +12,14 @@ class ListGroupRepository(
 
     private val groups: MutableList<Group> = groups.sync(this)
 
-    override fun add(groupId: GroupId): Group = Group(
-            groupId,
+    override fun add(id: GroupId): Group = Group(
+            id,
             mutableListOf()
     ).also { groups.add(it) }
 
-    override fun remove(groupId: GroupId): Group? = find(groupId).also { groups.remove(it) }
+    override fun remove(id: GroupId): Group? = find(id).also { groups.remove(it) }
 
-    override fun find(groupId: GroupId): Group? = groups.find { it.id == groupId }
+    override fun find(id: GroupId): Group? = groups.find { it.id == id }
 
     override fun iterator() = groups.iterator()
 }
