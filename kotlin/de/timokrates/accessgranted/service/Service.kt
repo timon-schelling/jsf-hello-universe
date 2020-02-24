@@ -1,6 +1,5 @@
 package de.timokrates.accessgranted.service
 
-import de.timokrates.accessgranted.repository.Repository
 import de.timokrates.accessgranted.repository.group.Group
 import de.timokrates.accessgranted.repository.group.GroupId
 import de.timokrates.accessgranted.repository.permissions.Permission
@@ -8,7 +7,7 @@ import de.timokrates.accessgranted.repository.permissions.PermissionId
 import de.timokrates.accessgranted.repository.user.User
 import de.timokrates.accessgranted.repository.user.UserId
 
-object Service : Repository by ServiceRepository() {
+object Service : Repositories by ServiceRepository() {
 
     object Permissions {
 
